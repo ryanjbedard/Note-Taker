@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-
+const api = require('./routes/notes.js');
 const api = require('./routes/index.js');
 
 const PORT = 3001;
@@ -19,12 +19,12 @@ app.use('/api', api);
 
 // This view route is a GET route for the homepage
 app.get('/', (req, res) =>
-  res.sendFile(path.join(__dirname, './public/pages/index.html'))
+  res.sendFile(path.join(__dirname, '/public/pages/index.html'))
 );
 
 // This view route is a GET route for the notes page
 app.get('/notes', (req, res) =>
-  res.sendFile(path.join(__dirname, './public/pages/notes.html'))
+  res.sendFile(path.join(__dirname, '/public/pages/notes.html'))
 );
 
 app.listen(PORT, () =>
