@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 
 const api = require('./routes/index.js');
+const noteData = require('./db/db.json');
 
 const PORT = 3001;
 
@@ -21,6 +22,9 @@ app.use('/api', api);
 app.get('/', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/pages/index.html'))
 );
+
+app.get('/api/notes', (req, res) => res.json(noteData));
+
 
 // This view route is a GET route for the notes page
 app.get('/notes', (req, res) =>
